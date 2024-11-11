@@ -1,6 +1,5 @@
 const sql = require("./db.js");
 
-// constructor
 const Tutorial = function(tutorial) {
   this.title = tutorial.title;
   this.description = tutorial.description;
@@ -34,7 +33,6 @@ Tutorial.findById = (id, result) => {
       return;
     }
 
-    // not found Tutorial with the id
     result({ kind: "not_found" }, null);
   });
 };
@@ -83,8 +81,7 @@ Tutorial.updateById = (id, tutorial, result) => {
       }
 
       if (res.affectedRows == 0) {
-        // not found Tutorial with the id
-        result({ kind: "not_found" }, null);
+      result({ kind: "not_found" }, null);
         return;
       }
 
@@ -103,7 +100,7 @@ Tutorial.remove = (id, result) => {
     }
 
     if (res.affectedRows == 0) {
-      // not found Tutorial with the id
+      
       result({ kind: "not_found" }, null);
       return;
     }
